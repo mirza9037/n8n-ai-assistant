@@ -1,12 +1,12 @@
 # 🤖 n8n AI Assistant Chatbot
 
-A general-purpose AI chatbot built with **n8n** and **Groq API (LLaMA 3)**. Fully customizable for any topic — customer support, HR, healthcare, education, and more.
+A general-purpose AI chatbot built with **n8n** and **Groq API (Compound Beta)**. Fully customizable for any topic — customer support, HR, healthcare, education, and more.
 
 ---
 
 ## ✨ Features
 
-- 💬 Real-time AI chat powered by LLaMA 3 (via Groq)
+- 💬 Real-time AI chat powered by Groq Compound Beta
 - 🧠 Conversation memory — remembers context within a session
 - ⚡ Extremely fast responses (Groq is one of the fastest LLM APIs)
 - 🔧 Easily customizable system prompt for any use case
@@ -19,8 +19,8 @@ A general-purpose AI chatbot built with **n8n** and **Groq API (LLaMA 3)**. Full
 | Tool | Purpose |
 |------|---------|
 | [n8n](https://n8n.io) | Workflow automation platform |
-| [Groq API](https://console.groq.com) | LLM inference (LLaMA 3) |
-| LLaMA 3 (8B) | AI language model |
+| [Groq API](https://console.groq.com) | LLM inference (Compound Beta) |
+| Groq Compound Beta | AI language model |
 | Window Buffer Memory | Conversation context management |
 
 ---
@@ -113,7 +113,7 @@ n8n-ai-assistant/
 
 **Mirza Obaid**  
 AI Automation Enthusiast | Pakistan  
-[LinkedIn](https://www.linkedin.com/in/mirzaobaid) • [GitHub](https://github.com)
+[LinkedIn](https://www.linkedin.com/in/mirzaobaid) • [GitHub](https://github.com/mirza9037/mirza9037)
 
 ---
 
