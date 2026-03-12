@@ -1,0 +1,118 @@
+{
+  "name": "General AI Assistant Chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "3400ae15-7595-47e9-9eee-704d1010e04d",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "ai-chat-webhook-001"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful, friendly, and knowledgeable AI assistant. Your job is to help users with any questions they have — whether it's general knowledge, advice, explanations, or problem-solving.\n\nGuidelines:\n- Always respond in a clear, concise, and friendly tone\n- If you don't know something, say so honestly\n- Keep answers focused and easy to understand\n- You can be customized for any specific topic by updating this system prompt"
+        }
+      },
+      "id": "180b6faa-fd64-4f17-8c27-d3df9fa46e29",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        272,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "model": "groq/compound",
+        "options": {
+          "temperature": 0.7
+        }
+      },
+      "id": "d901d374-4c02-48dc-aa13-00a660eb6bd6",
+      "name": "Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        272,
+        208
+      ],
+      "credentials": {
+        "groqApi": {
+          "id": "ZafSnlX1IgdDygNp",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionKey": "sessionId"
+      },
+      "id": "9f25bd3b-ab1e-4be7-9b0b-e9415eb83b1b",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        464,
+        208
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "5b7b21cf-a3ff-49c8-b68b-c958f7d5ebfc",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3e218110031861500d24d722e764e92cbf8aed3f81fc9fabf1dd78fc931afc0c"
+  },
+  "id": "mzmM14R6HvQiG1au",
+  "tags": []
+}
